@@ -1,0 +1,55 @@
+{
+  "case_id": "CASE-001",
+  "category": "床上用品",
+  "product": {
+    "name": "蚕丝被",
+    "spu_id": "SPU-001"
+  },
+  "skus": [
+    {
+      "sku_id": "SKU-001",
+      "variant": "双人款-当前待审规格",
+      "version": "V1",
+      "attributes": {
+        "filling_material": "聚酯纤维",
+        "silk_content": "0%",
+        "data_source": "platform_catalog",
+        "verified": true
+      }
+    }
+  ],
+  "page": {
+    "snapshot_time": "2026-11-05T10:00:00+08:00",
+    "title": "100%天然桑蚕丝被",
+    "main_image_ocr": "",
+    "detail_text": "采用100%桑蚕丝填充，柔软如云。本款参与限时立减50元活动。"
+  },
+  "evidence": [
+    {
+      "evidence_id": "E-001",
+      "type": "test_report",
+      "title": "桑蚕丝含量检测报告",
+      "source": "merchant_upload",
+      "product_scope": "SKU-002",
+      "version_scope": "unknown",
+      "conclusion": "桑蚕丝含量100%",
+      "valid_from": null,
+      "valid_to": null,
+      "verification_status": "not_verified"
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "R-001",
+      "description": "商品材质宣传应与当前SKU的商品属性及适用证明保持一致。",
+      "if": "A material claim materially conflicts with a verified current-SKU platform attribute.",
+      "action": "BLOCK"
+    },
+    {
+      "rule_id": "R-002",
+      "description": "优惠宣传需要有效活动规则、适用范围和有效期支持。",
+      "if": "An offer claim is present but campaign evidence is missing.",
+      "action": "REQUEST_EVIDENCE"
+    }
+  ]
+}
